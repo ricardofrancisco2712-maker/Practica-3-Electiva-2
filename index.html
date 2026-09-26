@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hola Mundo ✨</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e1b4b,
+                #312e81,
+                #0f172a
+            );
+
+            background-size: 400% 400%;
+            animation: fondo 10s ease infinite;
+        }
+
+        /* Fondo animado */
+        @keyframes fondo {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Círculos decorativos */
+        .circulo {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.6;
+            animation: flotar 6s ease-in-out infinite;
+        }
+
+        .circulo-1 {
+            width: 250px;
+            height: 250px;
+            background: #8b5cf6;
+            top: -80px;
+            left: -70px;
+        }
+
+        .circulo-2 {
+            width: 300px;
+            height: 300px;
+            background: #06b6d4;
+            bottom: -120px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        .circulo-3 {
+            width: 120px;
+            height: 120px;
+            background: #ec4899;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1);
+            }
+        }
+
+        /* Tarjeta principal */
+        .card {
+            position: relative;
+            z-index: 10;
+
+            width: min(90%, 650px);
+            padding: 60px 40px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.4);
+
+            animation: aparecer 1.2s ease forwards;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Emoji */
+        .emoji {
+            font-size: 70px;
+            display: inline-block;
+
+            animation:
+                saludar 2s ease-in-out infinite,
+                aparecerEmoji 1s ease;
+        }
+
+        @keyframes saludar {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(15deg);
+            }
+
+            50% {
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                transform: rotate(15deg);
+            }
+        }
+
+        @keyframes aparecerEmoji {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Título */
+        h1 {
+            margin-top: 20px;
+
+            font-size: clamp(45px, 8vw, 80px);
+            font-weight: 800;
+
+            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #c4b5fd,
+                #67e8f9,
+                #ffffff
+            );
+
+            background-size: 300% auto;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: brillo 4s linear infinite;
+        }
+
+        @keyframes brillo {
+            to {
+                background-position: 300% center;
+            }
+        }
+
+        /* Subtítulo */
+        p {
+            margin-top: 20px;
+
+            font-size: 20px;
+            line-height: 1.6;
+
+            color: #e2e8f0;
+        }
+
+        .codigo {
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 12px 22px;
+
+            border-radius: 12px;
+
+            color: #67e8f9;
+            background: rgba(0, 0, 0, 0.25);
+
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+
+            border: 1px solid rgba(103, 232, 249, 0.25);
+
+            animation: pulsar 2s infinite;
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(103, 232, 249, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(103, 232, 249, 0.25);
+            }
+        }
+
+        /* Botón */
+        .boton {
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 14px 30px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #7c3aed,
+                #06b6d4
+            );
+
+            font-weight: bold;
+
+            transition: 0.3s ease;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .boton:hover {
+            transform: translateY(-5px) scale(1.05);
+
+            box-shadow:
+                0 15px 35px rgba(6, 182, 212, 0.35);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 45px 25px;
+            }
+
+            .emoji {
+                font-size: 55px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .codigo {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Elementos decorativos -->
+    <div class="circulo circulo-1"></div>
+    <div class="circulo circulo-2"></div>
+    <div class="circulo circulo-3"></div>
+
+    <!-- Contenido -->
+    <main class="card">
+
+        <div class="emoji">👋</div>
+
+        <h1>¡Hola Mundo!</h1>
+
+        <p>
+            Mi primer proyecto web publicado en GitHub.
+            <br>
+            <strong>HTML + CSS + Animaciones ✨</strong>
+        </p>
+
+        <div class="codigo">
+            &lt;Hello World /&gt;
+        </div>
+
+        <br>
+
+        <a
+            href="https://github.com/"
+            target="_blank"
+            class="boton"
+        >
+            🚀 Ver en GitHub
+        </a>
+
+    </main>
+
+</body>
+</html>
